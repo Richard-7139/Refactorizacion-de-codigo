@@ -5,9 +5,8 @@ Función para calcular la media de una lista de números.
 */
 function obtenerMedia(numeros) {
 let total = numeros.reduce((acumulador, numero) => acumulador + numero, 0);
-return total / numeros.length;
+return media = total / numeros.length;
 }
-
 
 /**
 Función para calcular la mediana de una lista de números.
@@ -15,15 +14,15 @@ Función para calcular la mediana de una lista de números.
 @returns {number} La mediana de la lista de números.
 */
 function obtenerMediana(numeros) {
-let numerosOrdenados = numeros.slice().sort((a, b) => a - b);
-const longitud = numerosOrdenados.length;
-let mediana;
-if (n % 2 === 0) {
-mediana = (numerosOrdenados[n / 2 - 1] + numerosOrdenados[n / 2]) / 2;
-} else {
-mediana = numerosOrdenados[(n - 1) / 2];
-}
-return mediana;
+    let numerosOrdenados = numeros.slice().sort((a, b) => a - b);
+    const longitud = numerosOrdenados.length;
+    let mediana;
+    if (longitud % 2 === 0) {
+        mediana = (numerosOrdenados[longitud / 2 - 1] + numerosOrdenados[longitud / 2]) / 2;
+    } else {
+        mediana = numerosOrdenados[(longitud - 1) / 2];
+    }
+    return mediana;
 }
 
 
@@ -33,11 +32,11 @@ Función para calcular la desviación estándar de una lista de números.
 @returns {number} La desviación estándar de la lista de números.
 */
 function obtenerDesviacionEstandar(numeros) {
-let media = obtenerMedia(numeros);
-let desviaciones = numeros.map(numero => Math.pow(numero - media, 2));
-let varianza = desviaciones.reduce((acumulador, desviacion) => acumulador + desviacion, 0) / numeros.length;
-let desviacionEstandar = Math.sqrt(varianza);
-return desviacionEstandar;
+    let media = obtenerMedia(numeros);
+    let desviaciones = numeros.map(numero => Math.pow(numero - media, 2));
+    let varianza = desviaciones.reduce((acumulador, desviacion) => acumulador + desviacion, 0) / numeros.length;
+    let desviacionEstandar = Math.sqrt(varianza);
+    return desviacionEstandar;
 }
 /**
 Función para calcular la media, mediana y desviación estándar de una lista de números.
@@ -46,21 +45,22 @@ Función para calcular la media, mediana y desviación estándar de una lista de
 Las estadísticas son media, mediana y desviación estándar.
 */
 function obtenerEstadisticas(numeros) {
-let media = obtenerMedia(numeros);
-let mediana = obtenerMediana(numeros);
-let desviacionEstandar = obtenerDesviacionEstandar(numeros);
-const estadisticas = { media, mediana, desviacionEstandar };
-return estadisticas;
+    let media = obtenerMedia(numeros);
+    let mediana = obtenerMediana(numeros);
+    let desviacionEstandar = obtenerDesviacionEstandar(numeros);
+    let estadisticas = { media, mediana, desviacionEstandar };
+    return estadisticas;
 }
 
 /**
 Función principal que llama a obtenerEstadisticas para imprimir las estadísticas de la lista de números.
 */
 function principal() {
-let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let estadisticas = obtenerEstadisticas(numeros);
-document.getElementById("media").textContent = estadisticas.media;
-document.getElementById("mediana").textContent = estadisticas.mediana;
-document.getElementById("desviacion").textContent = estadisticas.desviacionEstandar;
+    let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let estadisticas = obtenerEstadisticas(numeros);
+    document.getElementById("media").textContent = estadisticas.media;
+    document.getElementById("mediana").textContent = estadisticas.mediana;
+    document.getElementById("desviacion").textContent = estadisticas.desviacionEstandar;
 }
+
 principal();
